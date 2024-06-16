@@ -18,12 +18,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.azeem.jetpackcompose.ui.theme.JetpackComposeTheme
@@ -55,17 +57,28 @@ fun ClickMe(listSize: Int, modifier: Modifier) {
     ) {
         for (i in 1..listSize) {
             item {
-                Box(modifier = Modifier.background(Color.Black)) {
+                Box {
                     Column {
                         Spacer(modifier = Modifier.height(8.dp))
                         Row {
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Icon(
+                                tint = colorResource(id = R.color.black),
+                                modifier = Modifier
+                                    .width(20.dp)
+                                    .height(20.dp)
+                                    .align(Alignment.CenterVertically),
+                                painter = painterResource(id = R.drawable.baseline_android_24),
+                                contentDescription = ""
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
                             Text(
                                 text = "Item $i",
                                 modifier = Modifier
                                     .align(Alignment.CenterVertically)
                                     .padding(start = 4.dp)
                                     .weight(1f),
-                                color = Color.White
+                                color = Color.Blue
                             )
                             Button(
                                 modifier = Modifier,
